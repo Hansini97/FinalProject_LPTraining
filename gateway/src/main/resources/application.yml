@@ -1,0 +1,19 @@
+server:
+  port: 8085
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: employer-service
+          uri: http://localhost:9191/
+          predicates:
+            - Path=/employerservices/**
+        - id: careerseeker-service
+          uri: http://localhost:9192/
+          predicates:
+            - Path=/careerseekerservices/**
+        - id: careersuggestion-service
+          uri: http://localhost:9193/
+          predicates:
+            - Path=/careersuggestionservices/**
